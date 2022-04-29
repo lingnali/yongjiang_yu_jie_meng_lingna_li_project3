@@ -81,9 +81,7 @@ Passwords are hashed using **bcrypt** library.
 #### Error handling
 
 Each async function is wrapped in an asyncWrapper() to catch the errors.
-
 The ExpressError class could customize error statusCode and message.
-
 In the end, the default error handler middleware would send the response.
 
 ## Front End

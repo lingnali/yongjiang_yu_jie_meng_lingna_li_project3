@@ -1,0 +1,73 @@
+{
+  "list" : [{
+      "title":"The Lincoln Highway: A Novel",
+      "author":"Amor Towles",
+      "image":"https://m.media-amazon.com/images/I/51wH91YObNL.jpg",
+      "price":18,
+      "link":"https://www.amazon.com/Lincoln-Highway-Novel-Amor-Towles/dp/0593459873/",
+      "description": "In June, 1954, eighteen-year-old Emmett Watson is driven home to Nebraska by the warden of the juvenile work farm where he has just served fifteen months for involuntary manslaughter. His mother long gone, his father recently deceased, and the family farm foreclosed upon by the bank, Emmett's intention is to pick up his eight-year-old brother, Billy, and head to California where they can start their lives anew. But when the warden drives away, Emmett discovers that two friends from the work farm have hidden themselves in the trunk of the warden's car. Together, they have hatched an altogether different plan for Emmett's future, one that will take them all on a fateful journey in the opposite direction—to the City of New York."
+  }, {
+    "title":"Under the Whispering Door",
+    "author":"TJ Klune",
+    "image":"https://m.media-amazon.com/images/I/51183gzLHAL._SY346_.jpg",
+    "price":23.99,
+    "link":"https://www.amazon.com/Under-Whispering-Door-Klune-TJ/dp/",
+    "description": "Welcome to Charon's Crossing. The tea is hot, the scones are fresh, and the dead are just passing through."
+  }, {
+    "title":"An Ugly Truth: Inside Facebook's Battle for Domination",
+    "author":"Sheera Frenkel",
+    "image":"https://m.media-amazon.com/images/I/517gssQcdjL.jpg",
+    "price":14.99,
+    "link":"https://www.amazon.com/Ugly-Truth-Inside-Facebooks-Domination/dp/0349144060/",
+    "description": "Once one of Silicon Valley’s greatest success stories, Facebook has been under constant fire for the past five years, roiled by controversies and crises. It turns out that while the tech giant was connecting the world, they were also mishandling users’ data, spreading fake news, and amplifying dangerous, polarizing hate speech."
+  }, {
+    "title":"AI 2041: Ten Visions for Our Future",
+    "author":"Kai-Fu Lee",
+    "image":"https://m.media-amazon.com/images/I/41KKYKTtUmL.jpg",
+    "price":21.49,
+    "link":"https://www.amazon.com/AI-2041/dp/0753559013/",
+    "description": "AI will be the defining development of the twenty-first century. Within two decades, aspects of daily human life will be unrecognizable. AI will generate unprecedented wealth, revolutionize medicine and education through human-machine symbiosis, and create brand-new forms of communication and entertainment. In liberating us from routine work, however, AI will also challenge the organizing principles of our economic and social order. Meanwhile, AI will bring new risks in the form of autonomous weapons and smart technology that inherits human bias. AI is at a tipping point, and people need to wake up—both to AI’s radiant pathways and its existential perils for life as we know it."
+  }, {
+    "title":"The 1619 Project: A New Origin Story",
+    "author":"Nikole Hannah-Jones",
+    "image":"https://m.media-amazon.com/images/I/419PI4RIs0L.jpg",
+    "price":22.8,
+    "link":"https://www.amazon.com/1619-Project-New-Origin-Story/dp/0593501713/",
+    "description": "In late August 1619, a ship arrived in the British colony of Virginia bearing a cargo of twenty to thirty enslaved people from Africa. Their arrival led to the barbaric and unprecedented system of American chattel slavery that would last for the next 250 years. This is sometimes referred to as the country’s original sin, but it is more than that: It is the source of so much that still defines the United States."
+  }, {
+    "title":"One Last Stop",
+    "author":"Casey McQuiston",
+    "image":"https://m.media-amazon.com/images/I/41nhezGts6L.jpg",
+    "price":10.25,
+    "link":"https://www.amazon.com/One-Last-Stop-Casey-McQuiston/dp/1250244498/",
+    "description": "For cynical twenty-three-year-old August, moving to New York City is supposed to prove her right: that things like magic and cinematic love stories don’t exist, and the only smart way to go through life is alone. She can’t imagine how waiting tables at a 24-hour pancake diner and moving in with too many weird roommates could possibly change that. And there’s certainly no chance of her subway commute being anything more than a daily trudge through boredom and electrical failures."
+  }, {
+    "title":"Invisible Child: Poverty, Survival & Hope in an American City",
+    "author":"Andrea Elliott",
+    "image":"https://m.media-amazon.com/images/I/41xh+Rn1kpL.jpg",
+    "price":20,
+    "link":"https://www.amazon.com/Invisible-Child-Poverty-Survival-American/dp/0812986946/",
+    "description": "In Invisible Child, Pulitzer Prize winner Andrea Elliott follows eight dramatic years in the life of Dasani, a girl whose imagination is as soaring as the skyscrapers near her Brooklyn shelter. In this sweeping narrative, Elliott weaves the story of Dasani’s childhood with the history of her ancestors, tracing their passage from slavery to the Great Migration north. As Dasani comes of age, New York City’s homeless crisis has exploded, deepening the chasm between rich and poor. She must guide her siblings through a world riddled by hunger, violence, racism, drug addiction, and the threat of foster care. Out on the street, Dasani becomes a fierce fighter “to protect those who I love.” When she finally escapes city life to enroll in a boarding school, she faces an impossible question: What if leaving poverty means abandoning your family, and yourself?"
+  }, {
+    "title":"Great Circle: A novel",
+    "author":"Maggie Shipstead",
+    "image":"https://m.media-amazon.com/images/I/41idnBvdLML.jpg",
+    "price":16.26,
+    "link":"https://www.amazon.com/Great-Circle-novel-Maggie-Shipstead/dp/0525656979/",
+    "description": "After being rescued as infants from a sinking ocean liner in 1914, Marian and Jamie Graves are raised by their dissolute uncle in Missoula, Montana. There--after encountering a pair of barnstorming pilots passing through town in beat-up biplanes--Marian commences her lifelong love affair with flight. At fourteen she drops out of school and finds an unexpected and dangerous patron in a wealthy bootlegger who provides a plane and subsidizes her lessons, an arrangement that will haunt her for the rest of her life, even as it allows her to fulfill her destiny: circumnavigating the globe by flying over the North and South Poles."
+  }, {
+    "title":"The Last Thing He Told Me: A Novel",
+    "author":"Laura Dave",
+    "image":"https://m.media-amazon.com/images/I/51aJ7twCu0L._SY346_.jpg",
+    "price":13.5,
+    "link":"https://www.amazon.com/Last-Thing-He-Told-Me/dp/1501171348",
+    "description": "Before Owen Michaels disappears, he smuggles a note to his beloved wife of one year: Protect her. Despite her confusion and fear, Hannah Hall knows exactly to whom the note refers—Owen’s sixteen-year-old daughter, Bailey. Bailey, who lost her mother tragically as a child. Bailey, who wants absolutely nothing to do with her new stepmother."
+  }, {
+    "title":"Harry Potter and the Sorcerer's Stone",
+    "author":"J.K. Rowling",
+    "image":"https://m.media-amazon.com/images/I/413lxIe20jL._SY346_.jpg",
+    "price":12,
+    "link":"https://www.amazon.com/Harry-Potter-Sorcerers-Stone-Rowling/dp/0590353403/",
+    "description": "Harry Potter spent ten long years living with Mr. and Mrs. Dursley, an aunt and uncle whose outrageous favoritism of their perfectly awful son Dudley leads to some of the most inspired dark comedy since Charlie and the Chocolate Factory. But fortunately for Harry, he's about to be granted a scholarship to a unique boarding school called THE HOGWORTS SCHOOL OF WITCHCRAFT AND WIZARDRY, where he will become a school hero at the game of Quidditch (a kind of aerial soccer played high above the ground on broomsticks), he will make some wonderful friends, and, unfortunately, a few terrible enemies. For although he seems to be getting your run-of-the-mill boarding school experience (well, ok, even that's pretty darn out of the ordinary), Harry Potter has a destiny that he was born to fulfill. A destiny that others would kill to keep him from."
+  }]
+}
