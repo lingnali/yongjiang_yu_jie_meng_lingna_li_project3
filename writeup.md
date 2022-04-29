@@ -12,7 +12,7 @@
 
 
 
-#### Given more time, what additional features, functional or design changes would you make
+#### Given more time, what additional features, functional or design changes would you make?
 
 If more time allowed:
 
