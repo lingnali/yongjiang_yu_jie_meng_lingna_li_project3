@@ -1,70 +1,64 @@
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import AuthContext from "../contexts/AuthContext";
-import useInput from "../hooks/useInput";
 import axios from "axios";
 
-const UserForm = (props) => {
+const UserForm = () => {
   const context = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // the useInput hook returns two objects: inputs and touched
-  // inputs: {username: "enteredValue", password: "enteredValue"}
-  // touched: {username: false, password: false}
-  const { inputHandler, blurHandler, reset, inputs, touched } = useInput();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ defaultValues: { username: "", password: "" } });
 
-  const validateUsername = (input) => input.trim() !== "";
-  const validatePassword = (input) => input.trim() !== "";
-
-  const usenameValid = inputs.username
-    ? validateUsername(inputs.username)
-    : false;
-  const passwordValid = inputs.password
-    ? validatePassword(inputs.password)
-    : false;
-
-  // if the username has been edited and is not valid, set it to invalid
-  const usernameInvalid = !usenameValid && touched.username;
-  const passwordInvalid = !passwordValid && touched.password;
-  const formValid = usenameValid && passwordValid;
-
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    if (!formValid) {
-      return;
-    }
-    const res = await axios.post(location.pathname, inputs);
+  const onSubmit = async (data, e) => {
+    const res = await axios.post(location.pathname, data);
     if (res.data === "success") {
       navigate("/books");
-      context.login(inputs.username);
+      context.login(data.username);
     }
     reset();
   };
 
   return (
-    <div className={""}>
-      <form onSubmit={submitHandler} className={""}>
-        <label htmlFor="username">Username</label>
+    <div className="container w-25">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="username" className="form-label">
+          Username
+        </label>
         <input
           type="text"
           name="username"
-          onChange={inputHandler}
-          onBlur={blurHandler}
-          value={inputs.username || ""}
+          className="form-control"
+          {...register("username", {
+            required: "Username is required",
+            minLength: { value: 4, message: "Min length is 3" },
+          })}
         />
-        <p>{usernameInvalid && "Username is not valid"}</p>
-
-        <label htmlFor="password">Password</label>
+        <p className="text-danger">{errors.username?.message}</p>
+        <label htmlFor="password" className="form-label">
+          Password
+        </label>
         <input
           type="password"
           name="password"
-          onChange={inputHandler}
-          onBlur={blurHandler}
-          value={inputs.password || ""}
+          className="form-control"
+          {...register("password", {
+            required: "Password is required",
+            minLength: { value: 4, message: "Min length is 5" },
+          })}
         />
-        <p>{passwordInvalid && "Password is not valid"}</p>
-        {<button type="submit">{location.pathname.slice(1)}</button>}
+        <p className="text-danger">{errors.password?.message}</p>
+        <div class="d-flex justify-content-center">
+          <button type="submit" className="btn btn-primary text-uppercase">
+            {location.pathname.slice(1)}
+          </button>
+        </div>
       </form>
     </div>
   );
