@@ -56,39 +56,53 @@ const BookDetail = () => {
     <>
       {err && <p>{err.message}</p>}
       {book && (
-        <div className="container d-flex p-3">
-          <div className=" col-lg-5">
+        <div className="container d-flex justify-content-around mt-3">
+          <div className="col-lg-5">
             <div className="row">
               <div className="card mx-3">
-                <h2>{book.title}</h2>
-                <p>
-                  {book.author} ${book.price}
-                </p>
-                <h2>Rating: {average ? average : "not rated"}</h2>
-                <p>Submitted by {book.creator.username}</p>
-                {context.isLoggedIn && (
-                  <Link to="reviews">
-                    <button className="btn btn-outline-primary">
-                      Add a review
-                    </button>
-                  </Link>
-                )}
-                <img src={book.image} alt={book.title} />
-                <p>{book.description}</p>
-                {context.username === book.creator.username && (
-                  <>
-                    <Link to="/books/edit" state={book}>
-                      <button className="btn btn-primary">Edit</button>
-                    </Link>
-                    <button
-                      onClick={() => deleteBookHandler(pathname)}
-                      type="button"
-                      className="btn btn-outline-danger w-50"
-                    >
-                      Delete
-                    </button>
-                  </>
-                )}
+                <div className="card-header">
+                  <h4>{book.title}</h4>
+                  <h5>Author: {book.author}</h5>
+                </div>
+                <div className="card-body d-flex flex-column mb-3">
+                  <div className="p-2">
+                    <h4>Price: ${book.price}</h4>
+                  </div>
+                  <div className="p-2">
+                    <h4>Rating: {average ? average : "not rated"}</h4>
+                    <p>Submitted by {book.creator.username}</p>
+                  </div>
+                  <div className="p-2">
+                    {context.isLoggedIn && (
+                      <Link to="reviews">
+                        <button className="btn btn-outline-primary">
+                          Add a review
+                        </button>
+                      </Link>
+                    )}
+                  </div>
+                  <div className="p-2">
+                    <img src={book.image} alt={book.title} />
+                  </div>
+                  <div className="p-2">
+                    <p>{book.description}</p>
+                  </div>
+
+                  <div className="d-flex justify-content-between p-2">
+                    {context.username === book.creator.username && (
+                      <>
+                        <Link to="/books/edit" state={book}>
+                          <button className="btn btn-primary btn-lg">Edit Book</button>
+                        </Link>
+                        <button
+                          onClick={() => deleteBookHandler(pathname)}
+                          type="button"
+                          className="btn btn-danger ">
+                          Delete Book</button>
+                      </>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

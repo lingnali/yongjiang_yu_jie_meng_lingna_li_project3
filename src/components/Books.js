@@ -47,20 +47,22 @@ const Books = () => {
           <button className="btn btn-outline-success">submit</button>
         </form>
       </div>
-
-      {isLoggedIn && (
-        <Link to="new">
-          <button className="btn btn-outline-primary">Add a book</button>
-        </Link>
-      )}
-
+      <div className="d-flex justify-content-center mt-3">
+        {isLoggedIn && (
+          <Link to="new">
+            <button className="btn btn-primary btn-lg">Add A Book</button>
+          </Link>
+        )}
+      </div>
       {books && books.length === 0 && <p>No books found!</p>}
       {books && (
         <div className="container mt-3">
           <div className="row">
-            {books.map((book) => {
-              return <Book key={book._id} {...book} />;
-            })}
+            <div class="row justify-content-center">
+              {books.map((book) => {
+                return <Book key={book._id} {...book} />;
+              })}
+            </div>
           </div>
         </div>
       )}
