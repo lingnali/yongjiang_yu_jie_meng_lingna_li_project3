@@ -7,7 +7,8 @@ const Book = require("../routes/models/book");
 const User = require("../routes/models/user");
 const books = require("./books.json");
 // process.env.DB_URL
-const mongoUrl = "mongodb://localhost:27017/review-app";
+const mongoUrl = process.env.DB_URL;
+// "mongodb://localhost:27017/review-app";
 
 mongoose
   .connect(mongoUrl)
@@ -16,6 +17,7 @@ mongoose
 
 const seedDB = async () => {
   await Book.deleteMany({});
+  await User.deleteMany({});
   const user = new User({
     username: process.env.DEMO_USERNAME,
     password: process.env.DEMO_PASSWORD,

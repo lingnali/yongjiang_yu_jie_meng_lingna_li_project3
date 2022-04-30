@@ -25,12 +25,13 @@ const BookForm = () => {
   const onSubmit = async (data, e) => {
     let res;
     if (location.state) {
-      res = await axios.put(`/books/${_id}`, { book: data });
+      res = await axios.put(`/api/books/${_id}`, { book: data });
       if (res.status === 200) {
         navigate(`/books/${_id}`);
       }
     } else {
-      res = await axios.post("/books", { book: data });
+      res = await axios.post("/api/books", { book: data });
+      console.log(res);
       if (res.status === 200) {
         navigate(-1);
       }
@@ -73,7 +74,11 @@ const BookForm = () => {
           type="text"
           className="form-control"
           {...register("image", {
-            required: "Title cannot be empty",
+            required: "Image cannot be empty",
+            pattern: {
+              value: /^(http|https):\/\/[^ "]+$/,
+              message: "URL pattern: https://example.com/image.jpg",
+            },
           })}
         />
         <p className="text-danger">{errors.image?.message}</p>
@@ -102,7 +107,10 @@ const BookForm = () => {
           })}
         />
         <p className="text-danger">{errors.description?.message}</p>
-        {<button type="submit">Submit</button>}
+
+        <button type="submit" className="btn btn-secondary">
+          Submit
+        </button>
       </form>
     </div>
   );

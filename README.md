@@ -10,11 +10,11 @@ To start the *development* environment, run "devstart" script.
 
 ## Back End
 
-#### [API](API.md)
+### [API](API.md)
 
 > Check API Docs on the API page.
 
-#### Schemas
+### Schemas
 
 ```js
 const bookSchema = new Schema({
@@ -63,22 +63,22 @@ const userSchema = new mongoose.Schema({
 });
 ```
 
-#### Authentication
+### Authentication
 
 Users are authentied using sessions. After logging in, the user's _id would be stored in the session.
 
-#### Validation middlewares
+### Validation middlewares
 
 **Joi** library is installed for data validation. The json object would be validated before saving to the database.  
 isLoggedIn() middleware would check user's authorization. If the user is not logged in, a 401 status would be returned.  
 The book and the review's creator would be validated before deletion or update.
 
-#### Security
+### Security
 
 Sessions are encrypted and stored in mongoDB using **connect-mongo** library.   
 Passwords are hashed using **bcrypt** library. 
 
-#### Error handling
+### Error handling
 
 Each async function is wrapped in an asyncWrapper() to catch the errors.  
 The ExpressError class could customize error statusCode and message.  

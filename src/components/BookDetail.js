@@ -25,7 +25,7 @@ const BookDetail = () => {
 
   useEffect(() => {
     axios
-      .get(pathname)
+      .get(`/api${pathname}`)
       .then((res) => {
         setBook(res.data);
         calculateAvg(res.data.reviews);
@@ -35,8 +35,8 @@ const BookDetail = () => {
 
   const deleteReviewHandler = async (url) => {
     try {
-      await axios.delete(url);
-      const res = await axios.get(pathname);
+      await axios.delete(`/api${url}`);
+      const res = await axios.get(`/api${pathname}`);
       setBook(res.data);
     } catch (err) {
       console.log(err);
@@ -45,7 +45,7 @@ const BookDetail = () => {
 
   const deleteBookHandler = async (url) => {
     try {
-      await axios.delete(url);
+      await axios.delete(`/api${url}`);
       navigate("/books");
     } catch (err) {
       console.log(err);

@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     axios
-      .get("/authenticate")
+      .get("/api/authenticate")
       .then((res) => {
         if (res.data !== "err") context.login(res.data);
       })
@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   const logoutHandler = async () => {
-    const res = await axios.post("/logout");
+    const res = await axios.post("/api/logout");
     if (res.status !== 200) {
       console.log(res);
     }
