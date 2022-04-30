@@ -18,9 +18,9 @@ const ReviewForm = () => {
   const onSubmit = async (data, e) => {
     let res;
     if (location.state) {
-      res = await axios.put(location.pathname, { review: data });
+      res = await axios.put(`/api${location.pathname}`, { review: data });
     } else {
-      res = await axios.post(location.pathname, { review: data });
+      res = await axios.post(`/api${location.pathname}`, { review: data });
     }
     if (res.status === 200) {
       navigate(-1);

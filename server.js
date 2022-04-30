@@ -52,11 +52,11 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 
-app.use("/", userRoutes);
-app.use("/books", bookRoutes);
-app.use("/books/:id/reviews", reviewRoutes);
+app.use("/api", userRoutes);
+app.use("/api/books", bookRoutes);
+app.use("/api/books/:id/reviews", reviewRoutes);
 
-app.get("/", function (req, res) {
+app.get("/books", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 

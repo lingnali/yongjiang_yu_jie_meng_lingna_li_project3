@@ -17,7 +17,7 @@ const UserForm = () => {
   } = useForm({ defaultValues: { username: "", password: "" } });
 
   const onSubmit = async (data, e) => {
-    const res = await axios.post(location.pathname, data);
+    const res = await axios.post(`/api/${location.pathname}`, data);
     if (res.data === "success") {
       navigate("/books");
       context.login(data.username);
@@ -54,7 +54,7 @@ const UserForm = () => {
           })}
         />
         <p className="text-danger">{errors.password?.message}</p>
-        <div class="d-flex justify-content-center">
+        <div className="d-flex justify-content-center">
           <button type="submit" className="btn btn-primary text-uppercase">
             {location.pathname.slice(1)}
           </button>

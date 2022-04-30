@@ -11,7 +11,7 @@ const Books = () => {
   const [search, setSearch] = useState("");
   useEffect(() => {
     axios
-      .get(`/books`)
+      .get("/api/books")
       .then((res) => {
         setBooks(res.data);
       })
@@ -22,7 +22,7 @@ const Books = () => {
     event.preventDefault();
     if (!search) return;
     console.log(search);
-    const res = await axios.get("/books", { params: { q: search } });
+    const res = await axios.get("/api/books", { params: { q: search } });
     if (res.status !== 200 || res.data.length === 0) {
       setSearch("");
       return setBooks([]);
