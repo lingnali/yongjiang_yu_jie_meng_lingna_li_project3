@@ -1,6 +1,10 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+//star
+import ReactStars from "react-rating-stars-component";
+
+
 
 const ReviewForm = () => {
   const navigate = useNavigate();
@@ -28,6 +32,11 @@ const ReviewForm = () => {
     reset();
   };
 
+  //star
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
+
   return (
     <div className="container w-25">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -42,6 +51,18 @@ const ReviewForm = () => {
           step="0.5"
           className="form-control"
           {...register("rating")}
+        />
+        
+        <ReactStars 
+          name = "rating"
+          count={5}
+          onChange={ratingChanged}
+          size={24}
+          isHalf={true}
+          emptyIcon={<i className="far fa-star"></i>}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
+          activeColor="#ffd700"
         />
 
         <label htmlFor="body" className="form-label">

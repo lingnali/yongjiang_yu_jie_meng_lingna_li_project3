@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
+import "./style.css";
+
 const Book = ({ _id, title, author, image }) => {
   return (
     <div className="col-md-6 col-lg-4">
       <div className="card mb-4 mx-2">
+        <div className="card-header"><header>{title}</header></div>
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-
-          <p>{author}</p>
-
+          <h5 className="card-text">Author: {author}</h5>
           <Link to={`${_id}`}>
-            <button className="btn btn-primary">Details</button>
+            <button className="btn btn-info">Details</button>
           </Link>
         </div>
-        <img src={image} className="card-img-bottom img-fluid" alt={title} />
+        <img src={image} className="card-img-top embed-responsive-item" alt={title} />
       </div>
     </div>
   );
