@@ -69,19 +69,19 @@ Users are authentied using sessions. After logging in, the user's _id would be s
 
 #### Validation middlewares
 
-**Joi** library is installed for data validation. The json object would be validated before saving to the database.
-isLoggedIn() middleware would check user's authorization. If the user is not logged in, a 401 status would be returned.
+**Joi** library is installed for data validation. The json object would be validated before saving to the database.  
+isLoggedIn() middleware would check user's authorization. If the user is not logged in, a 401 status would be returned.  
 The book and the review's creator would be validated before deletion or update.
 
 #### Security
 
-Sessions are encrypted and stored in mongoDB using **connect-mongo** library. 
-Passwords are hashed using **bcrypt** library.
+Sessions are encrypted and stored in mongoDB using **connect-mongo** library.   
+Passwords are hashed using **bcrypt** library. 
 
 #### Error handling
 
-Each async function is wrapped in an asyncWrapper() to catch the errors.
-The ExpressError class could customize error statusCode and message.
+Each async function is wrapped in an asyncWrapper() to catch the errors.  
+The ExpressError class could customize error statusCode and message.  
 In the end, the default error handler middleware would send the response.
 
 ## Front End
