@@ -1,89 +1,107 @@
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const BookForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { title, image, price, link, description } = location.state || {};
-  const [form, setForm] = useState({ title, image, price, link, description });
+  const {
+    title = "",
+    author = "",
+    image = "",
+    price = 0,
+    description = "",
+    _id = "",
+  } = location.state || {};
 
-  const inputHandler = (event) => {
-    setForm((form) => ({
-      ...form,
-      [event.target.name]: event.target.value,
-    }));
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ defaultValues: { title, author, image, price, description } });
 
-  //const formValid = form.body.trim() === "";
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    // if (form.title.trim() === "") {
-    //   return;
-    // }
-    // let res;
-    // if (location.state) {
-    //   res = await axios.put(location.pathname, { book: form });
-    // } else {
-    //   res = await axios.post('/books', { book: form });
-    // }
-
-    let res = await axios.post(location.pathname, { book: form });
-    if (res.status === 200) {
-      navigate(-1);
+  const onSubmit = async (data, e) => {
+    let res;
+    if (location.state) {
+      res = await axios.put(`/books/${_id}`, { book: data });
+      if (res.status === 200) {
+        navigate(`/books/${_id}`);
+      }
+    } else {
+      res = await axios.post("/books", { book: data });
+      if (res.status === 200) {
+        navigate(-1);
+      }
     }
-    setForm({});
+    reset();
   };
 
   return (
-    <div className={""}>
-      <form onSubmit={submitHandler} className={""}>
-        <label htmlFor="title">Book Name</label>
+    <div className="container w-25">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="title" className="form-label">
+          Book Name
+        </label>
         <input
           type="text"
           name="title"
-          onChange={inputHandler}
-          value={form.title || ""}
+          className="form-control"
+          {...register("title", {
+            required: "Title cannot be empty",
+          })}
         />
-        <label htmlFor="author">Author</label>
+        <p className="text-danger">{errors.title?.message}</p>
+        <label htmlFor="author" className="form-label">
+          Author
+        </label>
         <input
           type="text"
           name="author"
-          onChange={inputHandler}
-          value={form.author || ""}
+          className="form-control"
+          {...register("author", {
+            required: "Title cannot be empty",
+          })}
         />
-        <label htmlFor="image">Image URL</label>
+        <p className="text-danger">{errors.author?.message}</p>
+        <label htmlFor="image" className="form-label">
+          Image URL
+        </label>
         <input
-          type="image"
           name="image"
-          onChange={inputHandler}
-          value={form.image || ""}
+          type="text"
+          className="form-control"
+          {...register("image", {
+            required: "Title cannot be empty",
+          })}
         />
-        <label htmlFor="price">Price</label>
+        <p className="text-danger">{errors.image?.message}</p>
+        <label htmlFor="price" className="form-label">
+          Price
+        </label>
         <input
           type="number"
           name="price"
-          onChange={inputHandler}
-          value={form.price || ""}
+          className="form-control"
+          {...register("price", {
+            required: "Price cannot be empty",
+            min: { value: 0, message: "Price cannot be negative" },
+          })}
         />
-        <label htmlFor="link">Link to purchase</label>
-        <input
-          type="url"
-          name="link"
-          onChange={inputHandler}
-          value={form.link || ""}
-        />
-        <label htmlFor="description">Description</label>
+        <p className="text-danger">{errors.price?.message}</p>
+        <label htmlFor="description" className="form-label">
+          Description
+        </label>
         <textarea
           type="text"
           name="description"
-          onChange={inputHandler}
-          value={form.description || ""}
+          className="form-control"
+          {...register("description", {
+            required: "Description cannot be empty",
+          })}
         />
-        {/* <p className={styles.error}>
-          {reviewInvalid && "Review cannot be empty!"}
-        </p> */}
+        <p className="text-danger">{errors.description?.message}</p>
         {<button type="submit">Submit</button>}
       </form>
     </div>
