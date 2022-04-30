@@ -6,7 +6,7 @@ To seed the database, run seeds/seeds.js.
 
 To start the *development* environment, run "devstart" script.
 
-### [Project Writeup](WRITEUP.md)
+### [Project Writeup](./writeup.md)
 
 ## Back End
 
