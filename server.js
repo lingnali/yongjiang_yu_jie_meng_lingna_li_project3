@@ -14,7 +14,7 @@ const bookRoutes = require("./routes/books");
 const reviewRoutes = require("./routes/reviews");
 
 // process.env.DB_URL
-const mongoUrl = "mongodb://localhost:27017/review-app";
+const mongoUrl = process.env.DB_URL || "mongodb://localhost:27017/review-app";
 
 const app = express();
 const cors = require("cors");
