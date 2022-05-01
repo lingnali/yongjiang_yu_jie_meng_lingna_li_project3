@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import Reviews from "./Reviews";
+import "./style.css";
 
 const BookDetail = () => {
   const { pathname } = useLocation();
@@ -56,15 +57,15 @@ const BookDetail = () => {
     <>
       {err && <p>{err.message}</p>}
       {book && (
-        <div className="container d-flex justify-content-around mt-3">
+        <div className="container d-flex justify-content-around">
           <div className="col-lg-5">
             <div className="row">
-              <div className="card mx-3">
+              <div className="card border-0">
                 <div className="card-header">
                   <h4>{book.title}</h4>
                   <h5>Author: {book.author}</h5>
                 </div>
-                <div className="card-body d-flex flex-column mb-3">
+                <div className="card-body d-flex flex-column">
                   <div className="p-2">
                     <h4>Price: ${book.price}</h4>
                   </div>
@@ -87,28 +88,30 @@ const BookDetail = () => {
                   <div className="p-2">
                     <p>{book.description}</p>
                   </div>
-
-                  <div className="d-flex justify-content-between p-2">
-                    {context.username === book.creator.username && (
-                      <>
-                        <Link to="/books/edit" state={book}>
-                          <button className="btn btn-primary btn-lg">Edit Book</button>
-                        </Link>
-                        <button
-                          onClick={() => deleteBookHandler(pathname)}
-                          type="button"
-                          className="btn btn-danger ">
-                          Delete Book</button>
-                      </>
-                    )}
+                  <div className="card-footer">
+                    <div className="d-flex justify-content-between p-2">
+                      {context.username === book.creator.username && (
+                        <>
+                          <Link to="/books/edit" state={book}>
+                            <button className="btn btn-primary btn-lg">Edit Book</button>
+                          </Link>
+                          <button
+                            onClick={() => deleteBookHandler(pathname)}
+                            type="button"
+                            className="btn btn-danger ">
+                            Delete Book</button>
+                        </>
+                      )}
+                    </div>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
           <div className="col-lg-6">
             <div className="row">
-              <div className="card mx-3 border-0">
+              <div className="card mt-3 border-0">
                 <Reviews
                   reviews={book.reviews}
                   onDelete={deleteReviewHandler}

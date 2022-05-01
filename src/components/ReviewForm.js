@@ -43,7 +43,7 @@ const ReviewForm = () => {
         <label htmlFor="rating" className="form-label">
           Rating
         </label>
-        <input
+        {/* <input
           type="range"
           name="rating"
           min="0"
@@ -51,18 +51,20 @@ const ReviewForm = () => {
           step="0.5"
           className="form-control"
           {...register("rating")}
-        />
+        /> */}
         
         <ReactStars 
           name = "rating"
           count={5}
-          onChange={ratingChanged}
+          // onChange={ratingChanged}
           size={24}
           isHalf={true}
           emptyIcon={<i className="far fa-star"></i>}
           halfIcon={<i className="fa fa-star-half-alt"></i>}
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
+          className="form-control"
+          {...register("rating")}
         />
 
         <label htmlFor="body" className="form-label">
