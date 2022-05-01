@@ -12,7 +12,7 @@ const Error = (props) => {
       <div class="row mt-5">
         <div class="col-6 offset-3">
           <div class="alert alert-secondary" role="alert">
-            <h4 class="alert-heading">Error</h4>
+            <h4 class="alert-heading">Error {!props.err && "404"}</h4>
             <p>Admin is busy reading, please try another page.</p>
             <p>{props.err}</p>
           </div>

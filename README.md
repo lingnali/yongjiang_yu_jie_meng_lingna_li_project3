@@ -97,10 +97,10 @@ There are three forms for user's input: *BookForm* , *ReviewForm* and *UserForm*
 The **react-hook-form** library is used to handle form inputs and validation.  
 The **react-rating-stars-component** library is used to render rating stars.
 
-The *AuthContext* stores all the login states. In the Header, the app would call "/api/authenticate"
+The *AuthContext* stores all the login states. In the Header, the app would call "/api/authenticate" to authenticate the user on refresh.
 
 ### Error handling
 
-There is an *Error* component which would render the error message for each page.
+There is an *Error* component which would render the error message for each page.  
 All undefined urls are redirected to the *Error* page.
 

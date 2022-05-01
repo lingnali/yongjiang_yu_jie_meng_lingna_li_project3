@@ -56,12 +56,8 @@ app.use("/api", userRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/books/:id/reviews", reviewRoutes);
 
-app.get("/books", function (req, res) {
+app.use("*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
-app.all("*", (req, res, next) => {
-  next(new ExpressError(404, "Page Not Found"));
 });
 
 app.use((err, req, res, next) => {
