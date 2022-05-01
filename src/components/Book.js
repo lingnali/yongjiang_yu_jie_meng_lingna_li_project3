@@ -12,7 +12,7 @@ const Book = ({ _id, title, author, image }) => {
             <button className="btn btn-info">Details</button>
           </Link>
         </div>
-        <img src={image} className="card-img-top embed-responsive-item" alt={title} />
+        <img src={image} className="img-fluid card-img-top embed-responsive-item" alt={title} />
       </div>
     </div>
   );
