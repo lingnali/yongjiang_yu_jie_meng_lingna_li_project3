@@ -5,6 +5,8 @@ import BookDetail from "./components/BookDetail";
 import UserForm from "./components/UserForm";
 import ReviewForm from "./components/ReviewForm";
 import BookForm from "./components/BookForm";
+import SearchResult from "./components/SearchResult";
+import Error from "./components/Error";
 
 function App() {
   return (
@@ -17,12 +19,13 @@ function App() {
           <Route path=":id" element={<BookDetail />} />
           <Route path="new" element={<BookForm />} />
           <Route path="edit" element={<BookForm />} />
+          <Route path="searchresult" element={<SearchResult />} />
           <Route path=":id/reviews" element={<ReviewForm />} />
           <Route path=":id/reviews/:reviewId" element={<ReviewForm />} />
         </Route>
         <Route path="/register" element={<UserForm />} />
         <Route path="/login" element={<UserForm />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

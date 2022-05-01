@@ -6,7 +6,7 @@ Review: [Create a review](#create-a-review), [Update a review](#update-a-review)
 
 > List all books.
 
-**GET** /books
+**GET** /api/books
 
 **Response**
 
@@ -47,7 +47,7 @@ Status: 200
 
 > Find the books with titles that contain the queryString.
 
-**GET** /books?q={queryString}
+**GET** /api/books?q={queryString}
 
 **Response**
 
@@ -88,7 +88,7 @@ Status: 200
 
 > Get the details of the book.
 
-**GET** /books/:id
+**GET** /api/books/:id
 
 **Response**
 
@@ -117,9 +117,9 @@ Status: 200
 
 ## Create a book
 
-> Create a book.
+> Create a book. (User has to be logged in to create a book.)
 
-**POST** /books
+**POST** /api/books
 
 **Parameters**
 
@@ -150,9 +150,9 @@ Status: 200
 
 ## Update a book
 
-> Update the details of the book.
+> Update the details of the book. (Only the entry creator could update the book.)
 
-**PUT** /books/:id
+**PUT** /api/books/:id
 
 **Parameters**
 
@@ -183,9 +183,9 @@ Status: 200
 
 ## Delete a book
 
-> Delete a book
+> Delete a book. (Only the entry creator could delete the book.)
 
-**Delete** /books/:id
+**Delete** /api/books/:id
 
 ##### Response
 
@@ -197,9 +197,9 @@ Status: 200
 
 ## Create a review
 
-> Create a review.
+> Create a review. (User has to be logged in to post a review.)
 
-**POST** books/:id/reviews
+**POST** /api/books/:id/reviews
 
 **Parameters**
 
@@ -227,9 +227,9 @@ Status: 200
 
 ## Update a review
 
-> Update the details of the review.
+> Update the details of the review. (Only the entry creator could update the review.)
 
-**PUT** /reviews/:reviewId
+**PUT** /api/reviews/:reviewId
 
 **Parameters**
 
@@ -257,9 +257,9 @@ Status: 200
 
 ## Delete a review
 
-> Delete a review.
+> Delete a review. (Only the entry creator could delete the review.)
 
-**Delete** /reviews/:reviewId
+**Delete** /api/reviews/:reviewId
 
 ##### Response
 

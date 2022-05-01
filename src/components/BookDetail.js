@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import Reviews from "./Reviews";
+import Error from "./Error";
 
 const BookDetail = () => {
   const { pathname } = useLocation();
@@ -54,7 +55,7 @@ const BookDetail = () => {
 
   return (
     <>
-      {err && <p>{err.message}</p>}
+      {err && <Error err={err.message} />}
       {book && (
         <div className="container d-flex justify-content-around mt-3">
           <div className="col-lg-5">
@@ -92,13 +93,17 @@ const BookDetail = () => {
                     {context.username === book.creator.username && (
                       <>
                         <Link to="/books/edit" state={book}>
-                          <button className="btn btn-primary btn-lg">Edit Book</button>
+                          <button className="btn btn-primary btn-lg">
+                            Edit Book
+                          </button>
                         </Link>
                         <button
                           onClick={() => deleteBookHandler(pathname)}
                           type="button"
-                          className="btn btn-danger ">
-                          Delete Book</button>
+                          className="btn btn-danger "
+                        >
+                          Delete Book
+                        </button>
                       </>
                     )}
                   </div>
