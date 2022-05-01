@@ -13,11 +13,9 @@ const Reviews = (props) => {
             <div className="card-header">
               <h4>Reviewer: {review.creator.username}</h4>
               <h6>Rating: {review.rating}</h6>
-              </div>
+            </div>
             <div className="card-body d-flex flex-column bd-highlight mb-3">
-              <div className="p-2 bd-highlight">
-                
-              </div>
+              <div className="p-2 bd-highlight"></div>
               <div className="p-2 bd-highlight">
                 <p>Comment: {review.body}</p>
               </div>
@@ -32,8 +30,11 @@ const Reviews = (props) => {
                         <button className="btn btn-primary">Edit Review</button>
                       </Link>
                       <button
-                        onClick={() => props.onDelete(`${props.url}/${review._id}`)}
-                        className="btn btn-danger">
+                        onClick={() =>
+                          props.onDelete(`${props.url}/${review._id}`)
+                        }
+                        className="btn btn-danger"
+                      >
                         Delete Review
                       </button>
                     </div>

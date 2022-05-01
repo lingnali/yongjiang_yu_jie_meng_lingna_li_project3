@@ -58,13 +58,13 @@ const BookDetail = () => {
     <>
       {err && <Error err={err.message} />}
       {book && (
-        <div className="container d-flex justify-content-around">
+        <div className="container d-flex justify-content-around mt-3">
           <div className="col-lg-5">
             <div className="row">
               <div className="card border-0">
-                <div className="card-header">
+                <div className="card-header bg-transparent">
                   <h4>{book.title}</h4>
-                  <h5>Author: {book.author}</h5>
+                  <h5 className="pt-1">Author: {book.author}</h5>
                 </div>
                 <div className="card-body d-flex flex-column">
                   <div className="p-2">
@@ -86,26 +86,29 @@ const BookDetail = () => {
                   <div className="p-2">
                     <img src={book.image} alt={book.title} />
                   </div>
-                  <div className="p-2">
+                  <div className="p-2 border border-light border-4 border-end-0 border-start-0">
                     <p>{book.description}</p>
                   </div>
-                  <div className="card-footer">
-                    <div className="d-flex justify-content-between p-2">
+                  <div className="card-footer bg-transparent border-0">
+                    <div className="d-flex justify-content-between">
                       {context.username === book.creator.username && (
                         <>
                           <Link to="/books/edit" state={book}>
-                            <button className="btn btn-primary btn-lg">Edit Book</button>
+                            <button className="btn btn-outline-primary btn-lg fs-6">
+                              Edit Book
+                            </button>
                           </Link>
                           <button
                             onClick={() => deleteBookHandler(pathname)}
                             type="button"
-                            className="btn btn-danger ">
-                            Delete Book</button>
+                            className="btn btn-outline-danger fs-6"
+                          >
+                            Delete Book
+                          </button>
                         </>
                       )}
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>

@@ -91,16 +91,16 @@ In the end, the default error handling middleware would send the response.
 
 ### Main components
 
-<Books /> is the index page. It renders a list of <Book />.   <BookDetail /> contains the details of a book.  
-There are three forms for user's input: <BookForm />, <ReviewForm /> and <UserForm />
+*Books* is the index page. It renders a list of *Book*.   *BookDetail* contains the details of a book.  
+There are three forms for user's input: *BookForm* , *ReviewForm* and *UserForm* 
 
 The **react-hook-form** library is used to handle form inputs and validation.  
 The **react-rating-stars-component** library is used to render rating stars.
 
-The AuthContext stores all the login states. In the Header, the app would call "/api/authenticate"
+The *AuthContext* stores all the login states. In the Header, the app would call "/api/authenticate"
 
 ### Error handling
 
-There is an <Error /> component which would render the error message for each page.
-All undefined urls are redirected to the <Error /> page.
+There is an *Error* component which would render the error message for each page.
+All undefined urls are redirected to the *Error* page.
 
