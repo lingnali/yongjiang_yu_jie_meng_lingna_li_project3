@@ -33,20 +33,22 @@ const Books = () => {
   return (
     <>
       {err && <Error err={err.message} />}
-      <form onSubmit={searchHandler}>
-        <div className="row justify-content-center mt-3">
-          <div class="input-box col-sm-8 col-lg-4">
-            <input
-              onChange={(e) => setSearch(e.target.value)}
-              value={search}
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            ></input>
+      <div className="container">
+        <form onSubmit={searchHandler}>
+          <div className="row justify-content-center mt-3 mx-1">
+            <div className="input-box col-sm-8  col-sm-6 col-lg-4">
+              <input
+                onChange={(e) => setSearch(e.target.value)}
+                value={search}
+                className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              ></input>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
 
       <div className="d-flex justify-content-center mt-3">
         {isLoggedIn && (
@@ -58,7 +60,7 @@ const Books = () => {
       {books && books.length === 0 && <p>No books found!</p>}
       {books && (
         <div className="container mt-3">
-          <div className="row justify-content-center">
+          <div className="row justify-content-start">
             {books.map((book) => {
               return <Book key={book._id} {...book} />;
             })}

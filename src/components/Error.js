@@ -9,10 +9,10 @@ const Error = (props) => {
         </Link>
       </div>
 
-      <div class="row mt-5">
-        <div class="col-6 offset-3">
-          <div class="alert alert-secondary" role="alert">
-            <h4 class="alert-heading">Error {!props.err && "404"}</h4>
+      <div className="row mt-5">
+        <div className="col-6 offset-3">
+          <div className="alert alert-secondary" role="alert">
+            <h4 className="alert-heading">Error {!props.err && "404"}</h4>
             <p>Admin is busy reading, please try another page.</p>
             <p>{props.err}</p>
           </div>

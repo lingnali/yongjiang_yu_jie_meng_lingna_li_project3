@@ -62,19 +62,17 @@ const BookDetail = () => {
           <div className="col-lg-5">
             <div className="row">
               <div className="card border-0">
-                <div className="card-header bg-transparent">
+                <div className="card-header bg-transparent h-auto">
                   <h4>{book.title}</h4>
-                  <h5 className="pt-1">Author: {book.author}</h5>
+                  <h5>Author: {book.author}</h5>
                 </div>
                 <div className="card-body d-flex flex-column">
-                  <div className="p-2">
+                  <div className="pb-1">
                     <h4>Price: ${book.price}</h4>
                   </div>
-                  <div className="p-2">
-                    <h4>Rating: {average ? average : "not rated"}</h4>
-                    <p>Submitted by {book.creator.username}</p>
-                  </div>
-                  <div className="p-2">
+                  <h4>Rating: {average ? average : "not rated"}</h4>
+                  <p>Submitted by {book.creator.username}</p>
+                  <div className="pb-3">
                     {context.isLoggedIn && (
                       <Link to="reviews">
                         <button className="btn btn-outline-primary">
@@ -83,10 +81,10 @@ const BookDetail = () => {
                       </Link>
                     )}
                   </div>
-                  <div className="p-2">
+                  <div className="pb-2">
                     <img src={book.image} alt={book.title} />
                   </div>
-                  <div className="p-2 border border-light border-4 border-end-0 border-start-0">
+                  <div className="pb-2 border border-light border-4 border-end-0 border-start-0">
                     <p>{book.description}</p>
                   </div>
                   <div className="card-footer bg-transparent border-0">

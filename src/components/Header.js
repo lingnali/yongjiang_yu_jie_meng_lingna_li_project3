@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-secondary bg-opacity-50 py-0 justify-content-between">
+    <nav className="navbar navbar-expand-sm navbar-light bg-secondary bg-opacity-50 py-0">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           <img
@@ -36,28 +36,27 @@ const Header = () => {
           />
           stack<span className="fw-bold">bookflow</span>
         </Link>
-
-        <div className="nav ">
+        <div className="nav ms-auto p-1">
           {!isLoggedIn && (
-            <Link to="/register" className="nav-link">
+            <Link to="/register" className="nav-link link">
               Register
             </Link>
           )}
           {!isLoggedIn && (
-            <Link to="/login" className="nav-link">
+            <Link to="/login" className="nav-link link">
               Log in
             </Link>
           )}
           {isLoggedIn && (
-            <span
+            <button
               onClick={() => {
                 context.logout();
                 logoutHandler();
               }}
-              className="nav-link"
+              className="nav-link me-2 btn btn-outline-light border-0"
             >
               Logout
-            </span>
+            </button>
           )}
           {isLoggedIn && (
             <span className="navbar-brand fs-5 fw-light">

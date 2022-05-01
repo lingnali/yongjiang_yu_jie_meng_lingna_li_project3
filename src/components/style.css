@@ -34,11 +34,8 @@ h5 {
     }
 }
 
-/* @media (max-width: 1200px) {
-    .card-img-top {
-        height: 50vw;
-    }
-} */
-
-
-
+.link:hover {
+  text-decoration: underline;
+  background-color: white;
+  border-radius: 5%;
+}
