@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import Book from "./Book";
+import Error from "./Error";
 
 const Books = () => {
+  const navigate = useNavigate();
   const { isLoggedIn } = useContext(AuthContext);
   const [books, setBooks] = useState(null);
   const [err, setErr] = useState(null);
@@ -21,32 +23,31 @@ const Books = () => {
   const searchHandler = async (event) => {
     event.preventDefault();
     if (!search) return;
-    console.log(search);
-    const res = await axios.get("/api/books", { params: { q: search } });
-    if (res.status !== 200 || res.data.length === 0) {
-      setSearch("");
-      return setBooks([]);
-    }
-    setBooks(res.data);
+    const { status, data } = await axios.get("/api/books", {
+      params: { q: search },
+    });
+    navigate("searchresult", { state: { status, data } });
     setSearch("");
   };
 
   return (
     <>
-      {err && <p>{err.message}</p>}
-      <div className="container-fluid w-25 mt-2">
-        <form onSubmit={searchHandler} className="d-flex">
-          <input
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          ></input>
-          <button className="btn btn-outline-success">submit</button>
-        </form>
-      </div>
+      {err && <Error err={err.message} />}
+      <form onSubmit={searchHandler}>
+        <div className="row justify-content-center mt-3">
+          <div class="input-box col-sm-8 col-lg-4">
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            ></input>
+          </div>
+        </div>
+      </form>
+
       <div className="d-flex justify-content-center mt-3">
         {isLoggedIn && (
           <Link to="new">
@@ -57,12 +58,10 @@ const Books = () => {
       {books && books.length === 0 && <p>No books found!</p>}
       {books && (
         <div className="container mt-3">
-          <div className="row">
-            <div class="row justify-content-center">
-              {books.map((book) => {
-                return <Book key={book._id} {...book} />;
-              })}
-            </div>
+          <div className="row justify-content-center">
+            {books.map((book) => {
+              return <Book key={book._id} {...book} />;
+            })}
           </div>
         </div>
       )}

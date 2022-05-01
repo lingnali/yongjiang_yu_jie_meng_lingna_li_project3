@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const asyncWrapper = require("./utils/asyncWrapper");
 const { isLoggedIn, isBookCreator, validateBook } = require("./middleware");
-
 const Book = require("./models/book");
 
 router

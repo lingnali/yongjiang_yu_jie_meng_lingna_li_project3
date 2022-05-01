@@ -34,7 +34,7 @@ const Header = () => {
             className="d-inline-block align-text-center mx-2"
             alt="logo"
           />
-          Book Review
+          stack<span className="fw-bold">bookflow</span>
         </Link>
 
         <div className="nav ">

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import Reviews from "./Reviews";
+import Error from "./Error";
 import "./style.css";
 
 const BookDetail = () => {
@@ -55,7 +56,7 @@ const BookDetail = () => {
 
   return (
     <>
-      {err && <p>{err.message}</p>}
+      {err && <Error err={err.message} />}
       {book && (
         <div className="container d-flex justify-content-around">
           <div className="col-lg-5">
