@@ -94,6 +94,7 @@ const BookForm = () => {
                       <input
                         type="number"
                         name="price"
+                        step="any"
                         className="form-control"
                         {...register("price", {
                           required: "Price cannot be empty",
